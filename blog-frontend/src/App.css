@@ -266,10 +266,15 @@
 
   .blog-post {
     grid-template-columns: 1fr;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .post-image {
-    height: 250px;
+    width: 180px;
+    min-width: 180px;
+    height: 180px;
   }
 
   .post-content {
@@ -314,8 +319,23 @@
     font-size: 2rem;
   }
 
+  .blog-posts-horizontal {
+    gap: 1.25rem;
+  }
+
+  .blog-post {
+    flex-direction: column;
+  }
+
+  .post-image {
+    width: 100%;
+    min-width: 0;
+    height: 200px;
+    margin: 1rem 1rem 0 1rem;
+  }
+
   .blog-post .post-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -328,8 +348,7 @@
     width: 100%;
   }
 
-  .featured-post .post-image,
-  .post-image {
+  .featured-post .post-image {
     height: 200px;
   }
 
@@ -343,6 +362,14 @@
 
   .post-content p {
     font-size: 0.9rem;
+  }
+
+  /* Ensure cards don't overflow small screens */
+  .blog-posts-horizontal {
+    padding: 0 0.5rem;
+  }
+  .blog-post {
+    border-radius: 14px;
   }
 }
 
@@ -439,6 +466,20 @@
   .form-inputs input,
   .form-inputs button {
     width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-inputs {
+    gap: 0.6rem;
+  }
+  .form-inputs input {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  .form-inputs button {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -791,6 +832,23 @@
   animation: elegantFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
   animation-delay: 0.6s;
+}
+
+/* Tighter inputs on mobile for hero subscription */
+@media (max-width: 576px) {
+  .subscription-form {
+    max-width: 320px;
+  }
+  .subscription-form input[type="email"] {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 6px 0 0 6px;
+  }
+  .subscription-form button {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 0 6px 6px 0;
+  }
 }
 
 .submit-button {
